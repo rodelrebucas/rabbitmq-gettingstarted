@@ -8,6 +8,14 @@
 
 2. Send message to the `hello` queue with: `python send.py`
 
----
+**RabbitMQ as worker queues** , pass time consuming task to multiple workers.
+
+- Messages are pass using round robin.
+- Prevent message loss when consumer dies by turning on message acknowledgements. 
+
+1. Run multilple workers by running `worker.py` in different terminals
+2. Send task with `python new_task.py task`
+
+--- 
 
 Tutorial References are in _https://www.rabbitmq.com/getstarted.html_
