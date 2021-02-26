@@ -11,13 +11,15 @@ channel.queue_declare(queue="task_queue", durable=True)
 # receive message from the command line
 message = " ".join(sys.argv[1:]) or "Hello World!"
 
+# Exchange - the one responsible for receiving message from the producer and pushing
+# that message to the queue.
 # Messages are goes through an "Exchange" before it knows what queue it should belong to.
 # We're using a default exchange.
 # Your message - routing_key
 # Which queue to send - body
 channel.basic_publish(
     exchange="",
-    routing_key="hello",
+    routing_key="task_queue",
     body=message,
     properties=pika.BasicProperties(
         delivery_mode=2,  # make message persistent

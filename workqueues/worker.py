@@ -33,7 +33,7 @@ def main():
     channel.basic_qos(prefetch_count=1)
 
     # Subscribe the callback to `hello` queue
-    channel.basic_consume(queue="hello", on_message_callback=callback)
+    channel.basic_consume(queue="task_queue", on_message_callback=callback)
 
     # Listen for incoming messages
     print(" [*] Waiting for messages. To exit press CTRL+C")
