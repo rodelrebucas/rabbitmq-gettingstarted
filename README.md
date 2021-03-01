@@ -52,6 +52,39 @@ _Relationship_ - one producer sends message and routed by a routing_key goes to 
 
 4. Run consumer for error `python receive_logs_direct.py error`.
 
+D. **Topics** - messages are sent based on matching words in the routing key.
+
+Bindings can be:
+
+\* (star) can substitute for exactly one word.
+
+\# (hash) can substitute for zero or more words.
+
+#### Receive message on 2 Binding keys:
+
+1. Run consumer for binding _\*kern._ and _\*.critical_: `python receive_logs_topic.py "kern.*" "*.critical"`
+   E. **RPC** -
+
+2. Run producer: `python emit_log_topic.py "kern.asd" "A critical kernel error"`
+
+#### Receive message on all binding keys:
+1. Run consumer for binding *#*:  `python receive_logs_topic.py "#"`
+
+2. Run producer: `python emit_log_topic.py "any.any" "A critical kernel error"`
+
+#### Receive message on *.critical binding key:
+1. Run consumer for binding *\*.critical*:  `python receive_logs_topic.py "*.critical"`
+
+2. Run producer: `python emit_log_topic.py "any.critical" "A critical kernel error"`
+
+
+#### Receive message on #.critical binding key:
+1. Run consumer for binding *#.critical*:  `python receive_logs_topic.py "#.critical"`
+
+2. Run producer: `python emit_log_topic.py "any.any.critical" "A critical kernel error"`
+
+E. **RPC** -
+
 ---
 
 Tutorial References are in _https://www.rabbitmq.com/getstarted.html_

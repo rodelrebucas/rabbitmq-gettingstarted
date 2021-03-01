@@ -7,10 +7,8 @@ channel = connection.channel()
 
 # exchange - the one responsible for receiving message from the producer and pushing
 # that message to the queue.
-# direct - the exchange type  when we want to deliver the message
-# to the queue bounded by the routing_key
-channel.exchange_declare(exchange="direct_logs", exchange_type="direct")
-
+# topic- messages are sent based on matching words in the routing key
+channel.exchange_declare(exchange="topic_logs", exchange_type="topic")
 
 # Let server create a random queue name by passing empty
 # string to queue this results to an empty and fresh queue
@@ -24,13 +22,13 @@ result = channel.queue_declare(queue="", exclusive=True)
 queue_name = result.method.queue
 
 # Severity as routing key
-severities = sys.argv[1:]
+topics_binding_keys = sys.argv[1:]
 
-for severity in severities:
+for bk in topics_binding_keys:
     # A. Bind the exchange named 'logs' to queue_name in order for
     # the exchange to send message to this queue
     # B. Bind the routing_key to the queue_name
-    channel.queue_bind(exchange="direct_logs", queue=queue_name, routing_key=severity)
+    channel.queue_bind(exchange="topic_logs", queue=queue_name, routing_key=bk)
 
 # Use this callback to handle incoming messages
 def callback(ch, method, properties, body):
