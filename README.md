@@ -34,9 +34,23 @@ C. **RabbitMQ as PubSub** - passing all messages not just a subset to multiple c
 
 _Relationship_ - one producer sends message and received by all subscribed consumers.
 
-1. Run consumer `python receive_logs.py`.
+1. Run consumer 1 `python receive_logs.py`.
 
-2. Run producer `python emit_log.py`.
+2. Run consumer 2 `python receive_logs.py`.
+
+3. Run producer `python emit_log.py`.
+
+C. **Routing** - one producer sends a message to the key goes through a named exchanged determining which queue the message belongs to base on the publish routing key.
+
+_Relationship_ - one producer sends message and routed by a routing_key goes to the queue which is binded to the routing_key. A routing_key key can be binded by one or multiple queue.
+
+1. Run producer for warning and info logs `python emit_log_direct.py warning info "Run. Run. Or it will explode."`.
+
+2. Run producer for error logs `python emit_log_direct.py error "Run. Run. Or it will explode."`.
+
+3. Run consumer for warning `python receive_logs_direct.py warning`.
+
+4. Run consumer for error `python receive_logs_direct.py error`.
 
 ---
 

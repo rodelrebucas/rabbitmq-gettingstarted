@@ -15,8 +15,8 @@ message = " ".join(sys.argv[1:]) or "Hello World!"
 # that message to the queue.
 # Messages are goes through an "Exchange" before it knows what queue it should belong to.
 # We're using a default exchange.
-# Your message - routing_key
-# Which queue to send - body
+# Your message - body
+# Which queue to send - routing_key
 channel.basic_publish(
     exchange="",
     routing_key="task_queue",
