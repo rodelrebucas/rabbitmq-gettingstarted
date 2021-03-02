@@ -11,7 +11,7 @@ channel = connection.channel()
 channel.exchange_declare(exchange="topic_logs", exchange_type="topic")
 
 # routing_key as topic as routing_key as first parameter
-routing_key = sys.argv[1] if len(sys.argv) > 1 else 'info'
+routing_key = sys.argv[1] if len(sys.argv) > 1 else "info"
 
 # create log message from the command line as 2nd parameter
 message = " ".join(sys.argv[2:]) or "Hello World!"

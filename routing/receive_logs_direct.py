@@ -16,8 +16,9 @@ channel.exchange_declare(exchange="direct_logs", exchange_type="direct")
 # string to queue this results to an empty and fresh queue
 # whenever we connect to RabbitMQ
 
-# exclusive=True - once the consumer connection is closed the queue
-# should be deleted
+# exclusive=True - once the consumer connection is closed, the queue
+# should be deleted.
+# Generate random queue name with empty queue parameter.
 result = channel.queue_declare(queue="", exclusive=True)
 
 # Get the random queue name

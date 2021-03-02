@@ -68,22 +68,28 @@ Bindings can be:
 2. Run producer: `python emit_log_topic.py "kern.asd" "A critical kernel error"`
 
 #### Receive message on all binding keys:
-1. Run consumer for binding *#*:  `python receive_logs_topic.py "#"`
+
+1. Run consumer for binding _#_: `python receive_logs_topic.py "#"`
 
 2. Run producer: `python emit_log_topic.py "any.any" "A critical kernel error"`
 
-#### Receive message on *.critical binding key:
-1. Run consumer for binding *\*.critical*:  `python receive_logs_topic.py "*.critical"`
+#### Receive message on \*.critical binding key:
+
+1. Run consumer for binding _\*.critical_: `python receive_logs_topic.py "*.critical"`
 
 2. Run producer: `python emit_log_topic.py "any.critical" "A critical kernel error"`
 
-
 #### Receive message on #.critical binding key:
-1. Run consumer for binding *#.critical*:  `python receive_logs_topic.py "#.critical"`
+
+1. Run consumer for binding _#.critical_: `python receive_logs_topic.py "#.critical"`
 
 2. Run producer: `python emit_log_topic.py "any.any.critical" "A critical kernel error"`
 
-E. **RPC** -
+E. **RPC** - running a function on a remote computer or Remote Procedure Call.
+
+1. Server: `python rpc_server.py`
+
+2. Client: `python rpc_client.py`
 
 ---
 

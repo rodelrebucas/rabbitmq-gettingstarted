@@ -12,7 +12,7 @@ channel = connection.channel()
 channel.exchange_declare(exchange="direct_logs", exchange_type="direct")
 
 # Severity as routing_key as first parameter
-severity = sys.argv[1] if len(sys.argv) > 1 else 'info'
+severity = sys.argv[1] if len(sys.argv) > 1 else "info"
 
 # create log message from the command line as 2nd parameter
 message = " ".join(sys.argv[2:]) or "Hello World!"

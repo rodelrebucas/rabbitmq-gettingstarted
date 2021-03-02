@@ -16,6 +16,7 @@ channel.exchange_declare(exchange="topic_logs", exchange_type="topic")
 
 # exclusive=True - once the consumer connection is closed the queue
 # should be deleted
+# Generate random queue name with empty queue parameter.
 result = channel.queue_declare(queue="", exclusive=True)
 
 # Get the random queue name

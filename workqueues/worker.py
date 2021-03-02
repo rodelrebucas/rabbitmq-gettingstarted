@@ -32,7 +32,7 @@ def main():
     # has already acknowledge its message.
     channel.basic_qos(prefetch_count=1)
 
-    # Subscribe the callback to `hello` queue
+    # Subscribe the callback to `task_queue` queue
     channel.basic_consume(queue="task_queue", on_message_callback=callback)
 
     # Listen for incoming messages
