@@ -26,7 +26,7 @@ queue_name = result.method.queue
 topics_binding_keys = sys.argv[1:]
 
 for bk in topics_binding_keys:
-    # A. Bind the exchange named 'logs' to queue_name in order for
+    # A. Bind the exchange named 'topic_logs' to queue_name in order for
     # the exchange to send message to this queue
     # B. Bind the routing_key to the queue_name
     channel.queue_bind(exchange="topic_logs", queue=queue_name, routing_key=bk)
