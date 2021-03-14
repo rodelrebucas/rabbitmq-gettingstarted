@@ -63,7 +63,6 @@ Bindings can be:
 #### Receive message on 2 Binding keys:
 
 1. Run consumer for binding _\*kern._ and _\*.critical_: `python receive_logs_topic.py "kern.*" "*.critical"`
-   E. **RPC** -
 
 2. Run producer: `python emit_log_topic.py "kern.asd" "A critical kernel error"`
 
